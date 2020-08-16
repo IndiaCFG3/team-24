@@ -52,10 +52,6 @@ def teacherregister(request):
 #         course1=request.POST['ques1']
 #         course2=request.POST['quest2']
         
-    
-   
-
-
         
 
 def studentregister(request):
@@ -108,16 +104,6 @@ def studentlogin(request):
     else:
         return render(request,'student_login.html')
 
-
-def login_student(request):
-    username = request.POST['username']
-    password = request.POST['password']
-    user = authenticate(username=username, password=password)
-    if user:
-        login(request, user)
-        student = Student.objects.get(name = username)
-        return render(request,'StudentDashboard.html',{'student':student})
-
 def logout_view(request):
 	logout(request)
 	return redirect('signup')
@@ -154,3 +140,15 @@ def view_courses(request):
 #     chapter_name = request.POST[]
 
 #def resume_to_pdf(request):
+def post_courses(request):
+    chapter_name  = request.POST['course']
+    video = CourseVideos()
+    video.chapter_name = chapter_name
+    video.faculty = request.POST['faculty']
+    video.link = request.POST['link']
+    video.link_description = request.POST['description']
+    video.save()
+    return redirect('upload')
+
+def upload_video(request):
+    return render(request,"postlink.html")

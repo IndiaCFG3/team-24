@@ -27,12 +27,13 @@ urlpatterns = [
     #path('certificate',views.,namme="certificate"),
     #path('quiz',views.,name="quiz"),
     #path('addquiz',views.,name="quiz"),
-    path('login-student',views.studentlogin,name = 'student_login'),
-    path('login-teacher',views.teacherlogin,name = 'teacher-login'),
-    #path(''),
+    path('login-student/',views.studentlogin,name = 'student_login'),
+    path('login-teacher/',views.teacherlogin,name = 'teacher-login'),
+    path('register-student',views.studentregister, name = 'student-register'),
+    path('register-teacher',views.teacherregister,name = 'teacher-register'),
     path('',views.home,name = 'home'),
-
-
+    path('upload-videos/',views.post_courses,name = 'upload_videos'),
+    path('upload/',views.upload_video,name = 'upload'),
 
     path('logout',views.logout_view, name = "logout"),
 
