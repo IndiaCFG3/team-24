@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "DM Sans";
+    color: white;
+}
+
+.contain{
+    width: 80%;
+    background-color: #171717;
+    margin: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.col-flex{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+#name{
+    margin-top: 20px;
+    font-weight: 600;
+    font-size: 26px;
+    color: white;
+}
+
+#contact{
+    margin-top: 10px;
+    font-weight: 300;
+    font-size: 18px;
+    color: white;
+}
+
+.hr{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 5px;
+    width: 100%;
+    background-color: white;
+}
+
+.head{
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.margin{
+    margin-top: 30px;
+}
+
+.desc1, .desc2, .desc3, .desc4{
+    margin-top: 10px;
+    margin-left: 40px;
+    font-size: 16px;
+    font-family: "DM Sans";
+}
+
+.desc-desc{
+    margin-left: 30px;
+}
+
+@media screen and (max-width:700px){
+    .contain{
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .container-fluid{
+        background-color: #171717;
+    }
+
+    #name{
+        font-size: 20px;
+    }
+
+    #contact{
+        font-size: 14px;
+    }
+
+    .desc1, .desc2, .desc3, .desc4{
+        font-size: 14px;
+    }
+
+    .head{
+        font-size: 18px;
+    }
+}
