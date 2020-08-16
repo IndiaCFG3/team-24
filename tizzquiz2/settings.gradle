@@ -1,0 +1,2 @@
+rootProject.name='TISS QUIZ'
+include ':app'
