@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Quiz It</string>
+
+    <string name="login">LOGIN</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="not_registered">Not Registered?</string>
+    <string name="register">Register</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="already_registered">Already Registered?</string>
+    <string name="welcome_user">Welcome User</string>
+    <string name="question">Question</string>
+    <string name="question_op1">Option 1</string>
+    <string name="question_op2">Option 2</string>
+    <string name="question_op3">Option 3</string>
+    <string name="question_ansnr">Answer Number</string>
+    <string name="question_diff">Difficulty</string>
+    <string name="question_ID">Category ID</string>
+
+    <string name="category"> Category</string>
+    <string name="goBack">Go Back</string>
+    <string name="submit"> Submit</string>
+</resources>
