@@ -1,0 +1,12 @@
+
+.frame{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+img{
+    margin-top: 40px;
+    width: 1100px;
+    height: 700px;
+}

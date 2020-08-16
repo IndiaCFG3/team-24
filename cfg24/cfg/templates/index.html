@@ -1,9 +1,10 @@
+{% load static %}
 <!doctype html>
 <html>
     <head>
         <title>TITS</title>
         
-        <link rel="stylesheet" type="text/css" href="index.css">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -20,10 +21,18 @@
             </div>
             <div class="row">
                 <div class="col-md-6 col">
-                    <a href="StudentRegistration.html">Register as Student</a>
+                    <a href="{% url 'student-register' %}">Register as Student</a>
                 </div>
                 <div class="col-md-6 col">
-                    <a href="TeacherRegistration.html">Register as Faculty</a>
+                    <a href="{% url 'teacher-register' %}">Register as Faculty</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col">
+                    <a href="student_login.html">Login as Student</a>
+                </div>
+                <div class="col-md-6 col">
+                    <a href="teacher_login.html">Login as Faculty</a>
                 </div>
             </div>
         </div>
