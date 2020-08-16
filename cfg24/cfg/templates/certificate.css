@@ -1,12 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&family=Signika&display=swap');
 
-.frame{
-    display: flex;
-    justify-content: center;
-    align-content: center;
+.container{
+    background: url("../images/certificate.png");
+    height: 80vh;
 }
 
-img{
-    margin-top: 40px;
-    width: 1100px;
-    height: 700px;
+.head{
+    display: flex;
+    justify-content: center;
+    font-family: "Signika";
+    font-size: 60px;
+    font-weight: 1000;
+    margin-top: 280px;
+    margin-left: 400px;
+}
+
+.content{
+    display: flex;
+    justify-content: center;
+    font-family: "Raleway";
+    font-size: 25px;
+    line-height: 1.5em;
+    font-weight: 400;
+    margin-top: 32px;
+    margin-left: 460px;
+}
+
+.signature{
+    float: right;
+    display: flex;
+    justify-content: center;
+    font-family: "Signika";
+    font-size: 26px;
+    font-weight: 100;
+    margin-top: 20px;
+    margin-left: 550px;
 }

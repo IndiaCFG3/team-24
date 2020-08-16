@@ -221,6 +221,8 @@ sidenavCloseEl.on('click', function() {
   toggleClassName(sidenavEl, 'active');
 });
 </script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js'></script>
+
 <div class="grid-container">
    <div class="menu-icon">
     <i class="fas fa-bars header__menu"></i>
@@ -310,6 +312,30 @@ sidenavCloseEl.on('click', function() {
           </button>  
       </div>
       </div>
+=======
+      <div class="card">
+        <div class="graph">
+          <canvas id="students" width="600" height="400"></canvas>
+          <script>                
+              var studentData = {
+                  labels : ["Quiz1","Quiz2","Quiz3","Quiz4","Quiz5"],
+                  datasets : [
+                  {
+                      fillColor : "rgba(172,194,132,0.4)",
+                      strokeColor : "#ACC26D",
+                      pointColor : "#fff",
+                      pointStrokeColor : "#9DB86D",
+                      data : [35,24,49,32,35]
+                  }
+              ]
+              }            
+              var students = document.getElementById('students').getContext('2d');                
+              new Chart(students).Line(studentData);                
+          </script>
+      </div>
+      </div>
+      <div class="card">Certificates</div>
+>>>>>>> eb0d3412506c694f32a1c397d4ca2d377025d851
     </div>
   </main>
 </div>
