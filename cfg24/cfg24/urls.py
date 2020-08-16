@@ -22,7 +22,7 @@ urlpatterns = [
     path('courses/',views.view_courses,name="courses"),
     path('updatecourse/<str:name>',views.add_course,name="addcourse"),
     #path('tests/',views., name ="tests"),
-    #path('generatedresume',views.,name="resume"),
+    path('generatedresume/',views.unauth_pdf,name="resume"),
     #path('certificate',views.,namme="certificate"),
     #path('quiz',views.,name="quiz"),
     #path('addquiz',views.,name="quiz"),
@@ -33,7 +33,9 @@ urlpatterns = [
     path('',views.home,name = 'home'),
     path('upload-videos/',views.post_courses,name = 'upload_videos'),
     path('upload/',views.upload_video,name = 'upload'),
-    path('student-home',views.student_home,name= "student_home"),
+    path('student-home/',views.student_home,name= "student_home"),
+    path('teacher-home/',views.teacher_home,name= "teacher_home"),
+    path('update-progress/<str:name>/',views.add_progress,name= "progress"),
 
     path('logout',views.logout_view, name = "logout"),
 

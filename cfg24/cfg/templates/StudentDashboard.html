@@ -233,7 +233,7 @@ sidenavCloseEl.on('click', function() {
    
   <header class="header">
     <div class="header__search">Search...</div>
-    <div class="header__avatar">Your face</div>
+    <div class="header__avatar"></div>
   </header>
 
   <aside class="sidenav">
@@ -242,20 +242,20 @@ sidenavCloseEl.on('click', function() {
     </div>
     <ul class="sidenav__list">
       <li class="sidenav__list-item">Profile</li>
-      <li class="sidenav__list-item">Resume</li>
+      <a href = "{% url 'resume' %}"><li class="sidenav__list-item">Resume</li></a>
       <li class="sidenav__list-item">Quizzes</li>
-      <li class="sidenav__list-item">Courses</li>
+      <a href = "{% url 'courses' %}"><li class="sidenav__list-item">Courses</li></a>
       <li class="sidenav__list-item">Certification</li>
     </ul>
   </aside>
 
   <main class="main">
     <div class="main-header">
-      <div class="main-header__heading">Hello User</div>
+      <div class="main-header__heading">Hello Govind</div>
       <div class="main-header__updates">Recent Courses</div>
     </div>
 
-    <div class="main-overview">
+    {% comment %} <div class="main-overview">
       <div class="overviewcard">
         <div class="overviewcard__icon">Summary</div>
         <div class="overviewcard__info">Subject 1</div>
@@ -272,7 +272,7 @@ sidenavCloseEl.on('click', function() {
         <div class="overviewcard__icon">Summary</div>
         <div class="overviewcard__info">Subject 4</div>
       </div>
-    </div>
+    </div> {% endcomment %}
 
     <div class="main-cards">
       <div class="card">Progress
@@ -297,29 +297,21 @@ sidenavCloseEl.on('click', function() {
         </div>
         </div>
       
-      <div class="card">Active Courses
+      <div class="card">Active Courses =
       <hr>
+      {% for chap in left %}
       <div>
-              <h4 >Accounting</h4>
-              <p class="d-none d-sm-block"> Description: hdhdhdhdhdhhd </p>  
+              <h4 >{{chap.name}}</h4>
+              <p class="d-none d-sm-block">Progress updated : {{chap.progess}} </p>  
+              <form action = "{% url 'progress' name=chap.name %}" method = "POST">
+              {% csrf_token %}
               <button class="btn btn-success btn-lg float-right" 
                       type="submit"> Course Finished 
               </button>  
+              </form>
       </div>
-      <div >
-          <h4 class="mt-0">Animation</h4>
-          <p class="d-none d-sm-block"> Description: jdjdjejdwjnednwjed</p>
-              <button class="btn btn-success btn-lg float-right" 
-                      type="submit"> Course Finished  
-              </button>     
-      </div>
-      <div  class="container-fluid ">
-          <h4 class="mt-0">Algebra</h4>
-          <p class="d-none d-sm-block"> Description: jsdcnsndjksdnvj</p>
-          <button class="btn btn-success btn-lg float-right" 
-                      type="submit"> Course Finished  
-              </button>  
-      </div>
+      {% endfor %}
+      
     </div>
   </div>
   </main>
