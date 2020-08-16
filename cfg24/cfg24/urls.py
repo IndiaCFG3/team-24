@@ -19,9 +19,8 @@ from cfg import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     #path('teacherlanding/',views.,name="teacherlanding"), # intial page for teacher 
-    # path('courses/',views.,name="courses"),
-    #path('addcourse/',views.,namae="addcourse"),
-    #path('updatecourse/',views.,name="updatecourse"),
+    path('courses/',views.view_courses,name="courses"),
+    path('updatecourse/<str:name>',views.add_course,name="addcourse"),
     #path('tests/',views., name ="tests"),
     #path('generatedresume',views.,name="resume"),
     #path('certificate',views.,namme="certificate"),
@@ -34,6 +33,7 @@ urlpatterns = [
     path('',views.home,name = 'home'),
     path('upload-videos/',views.post_courses,name = 'upload_videos'),
     path('upload/',views.upload_video,name = 'upload'),
+    path('student-home',views.student_home,name= "student_home"),
 
     path('logout',views.logout_view, name = "logout"),
 

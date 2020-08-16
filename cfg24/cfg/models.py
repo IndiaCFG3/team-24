@@ -29,6 +29,5 @@ class Quiz(models.Model):
     title=models.CharField(max_length=100)
     max_marks=models.IntegerField()
     links=JSONField()
-
     
     

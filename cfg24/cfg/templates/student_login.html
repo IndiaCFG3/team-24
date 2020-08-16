@@ -23,7 +23,8 @@
   </style>
 </head>
 <body>
-    <form action="/action_page.php">
+    <form action="{% url 'student_login' %}" method = "POST">
+    {% csrf_token %}
         <div class="container">
           <h1>Student Login</h1>
           <hr>

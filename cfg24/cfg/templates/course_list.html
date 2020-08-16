@@ -32,16 +32,22 @@
 </head>
 <body>
     <div class="container">
-        <h1 style="text-align:center">Courses Available</h1>
+        <h1 style="text-align:center">Videos Available</h1>
     </div>
     <hr>
+    {% for course  in courses %}
     <div style="background-color: lightsteelblue; color:black" class="container-fluid col-md-10 col-md-offset-1">
-            <h3 class="mt-0">Accounting</h3>
-            <p class="d-none d-sm-block"> Description: hdhdhdhdhdhhd </p>  
+            <h3 class="mt-0">{{ course.chapter_name }}</h3>
+            <p class="d-none d-sm-block"> {{ course.link_description }} </p>  
+            <form action = "{% url 'addcourse' name=course.chapter_name  %}" method="POST">
+            {% csrf_token %}
             <button class="btn btn-success btn-lg float-right" 
                     type="submit"> Add Course  
-            </button>  
-    </div>
+            </button> 
+            </form> 
+            </div>
+            {% endfor %}
+    {% comment %} </div>
     <div class="col-md-10 col-md-offset-1">
         <h3 class="mt-0">Animation</h3>
         <p class="d-none d-sm-block"> Description: jdjdjejdwjnednwjed</p>
@@ -82,8 +88,8 @@
         <p class="d-none d-sm-block"> Description: sfvsfscv sfv </p>
         <button class="btn btn-success btn-lg float-right" 
                     type="submit"> Add Course  
-        </button>  
-    </div>
+        </button>   
+    </div>{% endcomment %}
 <footer>
 
 </footer>
