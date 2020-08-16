@@ -18,4 +18,18 @@ from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('teacherlanding/',views.,name="teacherlanding"), # intial page for teacher 
+    path('studentlanding/',views.,name="studentlanding"), # intial page for student 
+    path('courses/',views.,name="courses"),
+    path('addcourse/',views.,name="addcourse"),
+    path('updatecourse/',views.,name="updatecourse"),
+    path('tests/',views., name ="tests"),
+    path('generatedresume',views.,name="resume"),
+    path('certificate',views.,namme="certificate"),
+    path('quiz',views.,name="views"),
+
+
+
+    path('logout',views.logout_view, name = "logout"),
+
 ]
