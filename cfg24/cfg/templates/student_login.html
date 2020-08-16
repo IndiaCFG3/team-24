@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Student Login</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="node_modules/bootstrap-social/bootstrap-social.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+      h1{
+          text-align: center;
+      }
+     body{
+         padding: 100px ;
+         padding-right: 300px;
+         padding-left: 300px;
+     }
+  </style>
+</head>
+<body>
+    <form action="/action_page.php">
+        <div class="container">
+          <h1>Student Login</h1>
+          <hr>
+      
+          <div class="container">
+            <label for="uname"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="uname" required>
+      
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+              
+            <button type="submit">Login</button>
+            <label>
+              <input type="checkbox" checked="checked" name="remember"> Remember me
+            </label>
+          </div>
+      
+          <div class="container" >
+            <span class="psw">Forgot <a href="#">password?</a></span>
+          </div>
+        </div>
+        </form>
+<footer>
+
+</footer>
+  <!--jQuery first, then Popper.js, then Bootstrap JS.--> 
+  <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
+  <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
+  <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
