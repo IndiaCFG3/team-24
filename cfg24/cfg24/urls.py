@@ -15,19 +15,22 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from . import views
+from cfg import views
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('teacherlanding/',views.,name="teacherlanding"), # intial page for teacher 
-    # path('studentlanding/',views.,name="studentlanding"), # intial page for student 
+    #path('teacherlanding/',views.,name="teacherlanding"), # intial page for teacher 
     # path('courses/',views.,name="courses"),
-    # path('addcourse/',views.,name="addcourse"),
-    # path('updatecourse/',views.,name="updatecourse"),
-    # path('tests/',views., name ="tests"),
-    # path('generatedresume',views.,name="resume"),
-    # path('certificate',views.,namme="certificate"),
-    # path('quiz',views.,name="quiz"),
-    # path('addquiz',views.,name="quiz"),
+    #path('addcourse/',views.,namae="addcourse"),
+    #path('updatecourse/',views.,name="updatecourse"),
+    #path('tests/',views., name ="tests"),
+    #path('generatedresume',views.,name="resume"),
+    #path('certificate',views.,namme="certificate"),
+    #path('quiz',views.,name="quiz"),
+    #path('addquiz',views.,name="quiz"),
+    path('login-student',views.studentlogin,name = 'student_login'),
+    path('login-teacher',views.teacherlogin,name = 'teacher-login'),
+    #path(''),
+    path('',views.home,name = 'home'),
 
 
 

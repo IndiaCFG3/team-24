@@ -20,10 +20,11 @@ class Teacher(models.Model):
     password=models.CharField(max_length=50)
     name=models.CharField(max_length=100)
     teacher_id=models.IntegerField()
-class Course(models.Model):
-    name=models.CharField(max_length=100)
-    links=JSONField()
-    modules=JSONField()
+class CourseVideos(models.Model):
+    chapter_name=models.CharField(max_length=100)
+    faculty = models.TextField()
+    link_description = models.TextField()
+    link = JSONField()
 class Quiz(models.Model):
     title=models.CharField(max_length=100)
     max_marks=models.IntegerField()

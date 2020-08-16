@@ -4,16 +4,24 @@ from django.http import HttpResponse, JsonResponse,Http404
 from rest_framework.decorators import api_view
 from django.views.decorators.http import require_POST
 import json
+from rest_framework.decorators import api_view
+from django.views.decorators.http import require_POST
 from django.views.decorators.csrf import csrf_exempt
+from rest_framework import generics
+from django.core import serializers
+from django.views.decorators.csrf import csrf_exempt
+from rest_framework.permissions import IsAuthenticated
+from rest_framework import filters
 # from .forms import *
 from django.contrib.auth import login, authenticate, logout
 import re
-from .decorators import *
+#from .serializers import *
+#from .decorators import *
 # from django.views import generic
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
-
+from .pdf import render_to_pdf
 '''Registration,login,logout start'''
 
 
@@ -38,6 +46,14 @@ def teacherregister(request):
             return redirect('teacherregister')
     else:
         return render(request,'TeacherRegistration.html')
+
+# def marksstat (request):
+#     if request.method == 'GET':
+#         course1=request.POST['ques1']
+#         course2=request.POST['quest2']
+        
+    
+   
 
 
         
@@ -106,6 +122,11 @@ def logout_view(request):
 	logout(request)
 	return redirect('signup')
 
+
+def home(request):
+    return render(request,'index.html')
+
+
 def student_home(request):
     student = request.user
 
@@ -126,12 +147,10 @@ def add_course(request,course_id):
     return render(request,'StudentDashboard.html') #message to be added later
 
 def view_courses(request):
-    courses = Courses.objects.all()
+    courses = CourseVideos.objects.all()
     return render(request,'Courses.html',{'courses':courses})
 
-def register_course(request):
-    new_course = Courses()
-    new_course.name = request.POST['coursename']
-    #request.
+# def add_video(request):
+#     chapter_name = request.POST[]
 
 #def resume_to_pdf(request):
