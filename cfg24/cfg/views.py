@@ -39,6 +39,14 @@ def teacherregister(request):
     else:
         return render(request,'TeacherRegistration.html')
 
+def marksstat (request):
+    if request.method == 'GET':
+        course1=request.POST['ques1']
+        course2=request.POST['quest2']
+        
+    
+   
+
 
         
 
