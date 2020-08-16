@@ -41,6 +41,7 @@ body {
   justify-content: space-between;
   padding: 0 16px;
   background-color: #648ca6;
+  margin-left: -100px;
 }
 
 /* Make room for the menu icon on mobile */
@@ -53,7 +54,7 @@ body {
   display: flex;
   flex-direction: column;
   height: 100%;
-  width: 240px;
+  width: 150px;
   position: fixed;
   overflow-y: auto;
   transform: translateX(-245px);
@@ -81,6 +82,7 @@ body {
   padding: 0;
   margin-top: 85px;
   list-style-type: none;
+  width:
 }
 
 .sidenav__list-item {
@@ -96,6 +98,7 @@ body {
 .main {
   grid-area: main;
   background-color: #8fd4d9;
+  margin-left: -100px;
 }
 
 .main-header {
@@ -138,7 +141,7 @@ body {
   background-color: #82bef6;
   margin-bottom: 10px;
   -webkit-column-break-inside: avoid;
-  padding: 24px;
+  padding-bottom: 500px;
   box-sizing: border-box;
 }
 
@@ -176,7 +179,7 @@ body {
   }
 
   .header__search {
-    margin-left: 0;
+    margin-left: ;
   }
 
   .sidenav {
@@ -272,18 +275,38 @@ sidenavCloseEl.on('click', function() {
     </div>
 
     <div class="main-cards">
-      <div class="card">Progress</div>
+      <div class="card">Progress
+          <div class="graph">
+            <canvas id="students" width="600" height="400"></canvas>
+            <script>                
+                var studentData = {
+                    labels : ["Quiz1","Quiz2","Quiz3","Quiz4","Quiz5"],
+                    datasets : [
+                    {
+                        fillColor : "rgba(172,194,132,0.4)",
+                        strokeColor : "#ACC26D",
+                        pointColor : "#fff",
+                        pointStrokeColor : "#9DB86D",
+                        data : [35,24,49,32,35]
+                    }
+                ]
+                }            
+                var students = document.getElementById('students').getContext('2d');                
+                new Chart(students).Line(studentData);                
+            </script>
+        </div>
+        </div>
+      
       <div class="card">Active Courses
-        <div class="container">
       <hr>
-      <div class="container-fluid ">
-              <h4 class="mt-0">Accounting</h4>
+      <div>
+              <h4 >Accounting</h4>
               <p class="d-none d-sm-block"> Description: hdhdhdhdhdhhd </p>  
               <button class="btn btn-success btn-lg float-right" 
                       type="submit"> Course Finished 
               </button>  
       </div>
-      <div class="col-md-10 col-md-offset-1">
+      <div >
           <h4 class="mt-0">Animation</h4>
           <p class="d-none d-sm-block"> Description: jdjdjejdwjnednwjed</p>
               <button class="btn btn-success btn-lg float-right" 
@@ -297,45 +320,7 @@ sidenavCloseEl.on('click', function() {
                       type="submit"> Course Finished  
               </button>  
       </div>
-      <div class="col-md-10 col-md-offset-1">
-          <h4 class="mt-0">Biology</h4>
-          <p class="d-none d-sm-block"> Description: sdvsdvsdv</p>
-          <button class="btn btn-success btn-lg float-right" 
-                      type="submit"> Course Finished  
-              </button>  
-      </div>
-      <div  class="container-fluid ">
-          <h4 class="mt-0">Business</h4>
-          <p class="d-none d-sm-block"> Description: sfvfssvsfv</p>
-          <button class="btn btn-success btn-lg float-right" 
-                      type="submit"> Course Finished  
-          </button>  
-      </div>
-      </div>
-=======
-      <div class="card">
-        <div class="graph">
-          <canvas id="students" width="600" height="400"></canvas>
-          <script>                
-              var studentData = {
-                  labels : ["Quiz1","Quiz2","Quiz3","Quiz4","Quiz5"],
-                  datasets : [
-                  {
-                      fillColor : "rgba(172,194,132,0.4)",
-                      strokeColor : "#ACC26D",
-                      pointColor : "#fff",
-                      pointStrokeColor : "#9DB86D",
-                      data : [35,24,49,32,35]
-                  }
-              ]
-              }            
-              var students = document.getElementById('students').getContext('2d');                
-              new Chart(students).Line(studentData);                
-          </script>
-      </div>
-      </div>
-      <div class="card">Certificates</div>
->>>>>>> eb0d3412506c694f32a1c397d4ca2d377025d851
     </div>
+  </div>
   </main>
 </div>
