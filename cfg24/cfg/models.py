@@ -5,6 +5,9 @@ from jsonfield import JSONField
 # Create your models here.
 class Student(models.Model):
     email = models.EmailField(max_length=254)
+    objective = models.TextField()
+    education = models.TextField()
+    miscellaneous = models.TextField()
     password=models.CharField(max_length=20)
     name=models.CharField(max_length=100)
     student_id=models.IntegerField()

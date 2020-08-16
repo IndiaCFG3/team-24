@@ -29,8 +29,6 @@ def logout_view(request):
 	logout(request)
 	return redirect('signup')
 
-
-
 def student_home(request):
     student = request.user
 
@@ -45,6 +43,7 @@ def add_course(request,course_id):
     student = Student.objects.get(name=request.user.username)#TBC
     student_courses = json.loads(student.courses)
     student_courses[len(student_courses)+1] = {'course':course,'complete':False}
+    student_courses = json.dump(student_courses)
     student.courses = student_courses
     student.save()
     return render(request,'StudentDashboard.html') #message to be added later
@@ -57,3 +56,5 @@ def register_course(request):
     new_course = Courses()
     new_course.name = request.POST['coursename']
     #request.
+
+#def resume_to_pdf(request):
