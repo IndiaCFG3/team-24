@@ -8,10 +8,10 @@ class Student(models.Model):
     password=models.CharField(max_length=20)
     name=models.CharField(max_length=100)
     student_id=models.IntegerField()
-    courses=models.JSONField()
-    test_names=models.JSONField()
-    courses=models.JSONField()
-    skill_set=models.JSONField()
+    courses=JSONField()
+    test_names=JSONField()
+    courses=JSONField()
+    skill_set=JSONField()
     coursesnum=models.IntegerField()
 class Teacher(models.Model):
     password=models.CharField(max_length=50)
@@ -19,12 +19,12 @@ class Teacher(models.Model):
     teacher_id=models.IntegerField()
 class Course(models.Model):
     name=models.CharField(max_length=100)
-    links=models.JSONField()
-    modules=models.JSONField()
+    links=JSONField()
+    modules=JSONField()
 class Quiz(models.Model):
     title=models.CharField(max_length=100)
     max_marks=models.IntegerField()
-    links=models.JSONField()
+    links=JSONField()
 
     
     
