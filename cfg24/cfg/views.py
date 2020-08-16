@@ -117,7 +117,7 @@ def logout_view(request):
 
 
 def home(request):
-    return render(request,'index.html')
+    return render(request,'frontpage.html')
 
 
 def student_home(request):
