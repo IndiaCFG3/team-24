@@ -16,14 +16,14 @@
     letter-spacing: 2px;
     align-items: center;
     justify-content: center;
-    height: 40vh;
+    height: 30vh;
 }
 
 .col{
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 50vh;
+    height: 30vh;
     width: 100%;
 }
 
@@ -50,7 +50,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 30vh;
+        height: 20vh;
         font-size: 30px;
     }
 
