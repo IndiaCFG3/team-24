@@ -36,6 +36,26 @@
                 justify-content: center;
                 margin-top: 100px;
             }
+            .image{
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    width: 100%;
+}
+
+#overlay {
+    position: fixed; 
+    display: none; 
+    width: 100%; 
+    height: 100%; 
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5); 
+    z-index: 2; 
+    cursor: pointer;
+  }
         </style>
 
         <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans&display=swap" rel="stylesheet">
@@ -44,8 +64,8 @@
         <div class="container bg-overlay">
             <div class="row text-center">
                 <div class="head">TISS Shiksha Portal</div>
-                <button type="button" class="btn btn-primary btn-lg" onclick="location.href='student_login.html'">Login (Student)</button>
-                <button type="button" class="btn btn-primary btn-lg" onclick="location.href='teacher_login.html'">Login (Faculty)</button>
+               <button type="button" class="btn btn-primary btn-lg" onclick="location.href='{% url 'student_login' %}'">Login (Student)</button>
+                <button type="button" class="btn btn-primary btn-lg" onclick="location.href='{% url 'teacher_login' %}'">Login (Faculty)</button>
             </div>
         </div>
     </body>

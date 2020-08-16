@@ -15,6 +15,7 @@ from rest_framework import filters
 # from .forms import *
 from django.contrib.auth import login, authenticate, logout
 import re
+from django.template.loader import render_to_string, get_template
 #from .serializers import *
 #from .decorators import *
 # from django.views import generic
@@ -116,24 +117,28 @@ def logout_view(request):
 
 
 def home(request):
-    return render(request,'index.html')
+    return render(request,'frontpage.html')
 
 
 def student_home(request):
     student = get_object_or_404(Student,pk=1)
     chapters = []
+    chap_left=[]
     progress = []
     courses = json.loads(student.courses)
     for i in courses:
+        print(i)
         if i != "none":
-            if i not in chapters:
-                chapters.append(i)
-    
+            if courses[i]['course'] not in chapters:
+                chapters.append(courses[i]['course'])
+                progress.append(courses[i]['progress'])
+                if not courses[i]['complete']:
+                    chap_left.append({'name':courses[i]['course'],'progress':courses[i]['progress']})
 
-    return render(request, 'StudentDashboard.html',{'student':student,'courses':chapters,})
+    return render(request, 'StudentDashboard.html',{'student':student,'courses':chapters,'progress':progress,'left':chap_left})
 
 def teacher_home(request):
-    teacher = request.user
+    teacher = get_object_or_404(Teacher,pk=1)
     return render(request, 'StudentDashboard.html',{'teacher':teacher})
 
 def add_course(request,name):
@@ -151,10 +156,12 @@ def add_progress(request,name):
     student = get_object_or_404(Student,pk=1)
     progress = 0.0;
     courses = json.loads(student.courses)
-    for i in range(len(courses)):
-        if courses[i]['course'] == name:
-            courses[i]['progress'] += 1/len(courses)
-            sendmailprogress(student.name, student.email, courses[i]['progress']*100)
+    for i in courses:
+        print(courses[i])
+        if courses[i]!="none":
+            if courses[i]['course'] == name:
+                courses[i]['progress'] += 1/len(courses)
+                sendmailprogress(student.name, student.email, courses[i]['progress']*100)
     return redirect('student_home')
         
 
@@ -182,31 +189,19 @@ def upload_video(request):
 
     
 
-def unauth_pdf(request, stud_id):
-    print("got here", type(bill_id))
-    try:
-        bill = get_object_or_404(Bill, pk=bill_id)
-        print(bill.id)
-        order = json.loads(bill.billdetails)
-        order["id"] = bill.id
-        order["datetime"] = bill.date_time
-        print(order)
-        template = get_template("app1/pdf.html")
-        html = template.render({"order": order})
-        pdf = render_to_pdf("app1/pdf.html", {"order": order})  # pdf
+def unauth_pdf(request):
 
-        if pdf:
-            response = HttpResponse(pdf, content_type="application/pdf")
-            filename = "Invoice_{}.pdf".format(order["id"])
-            content = "inline; filename = %s" % (filename)
-            response["Content-Disposition"] = content
-            return response
-        else:
-            return HttpResponse("Not Found/Error. Please try again")
-    except Bill.DoesNotExist:
-        return HttpResponse(
-            "Sorry, that bill doesnt exist. Please check your invoice number"
-        )
+    student = get_object_or_404(Student, pk=1)
+    template = get_template("resume.html")
+    html = template.render({"student": student})
+    pdf = render_to_pdf("resume.html", {"student": student})  # pdf
+
+    if pdf:
+        response = HttpResponse(pdf, content_type="application/pdf")
+        filename = "Resume.pdf"
+        content = "inline; filename = %s" % (filename)
+        response["Content-Disposition"] = content
+        return response
 
 def sendmailprogress(name, email, progress):
     msg = MIMEMultipart()
