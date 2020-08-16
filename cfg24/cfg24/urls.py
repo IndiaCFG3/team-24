@@ -26,7 +26,8 @@ urlpatterns = [
     path('tests/',views., name ="tests"),
     path('generatedresume',views.,name="resume"),
     path('certificate',views.,namme="certificate"),
-    path('quiz',views.,name="views"),
+    path('quiz',views.,name="quiz"),
+    path('addquiz',views.,name="quiz"),
 
 
 
